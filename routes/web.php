@@ -67,13 +67,13 @@ Route::get('/', function () use ($tasks) {
 //admin page
 Route::group(['prefix'=>'admin', 'as'=>'admin.','namespace'=>'admin'], function(){
     Route::get('/', function(){
-        return view('admin.layouts.app');
-    });
+        return view('admin.dashboard.index');
+    })->name('index');
 
-    Route::get('/user-list', function () {
+    Route::get('/users', function () {
 
         return view('admin.users.user-list');
-    });
+    })->name('user.list');
     
     Route::get('/Categories', function(){
         return view('admin.Categories.Categorie-list');
@@ -84,58 +84,78 @@ Route::group(['prefix'=>'admin', 'as'=>'admin.','namespace'=>'admin'], function(
         return view('admin.product.product-list');
     });
 
+    Route::get('/Login', function () {
+    
+        return view('admin.login.index');
+    })->name('login');
+    
+    Route::get('/Register', function () {
+    
+        return view('admin.register.index');
+    })->name('register');
 
+    Route::get('/Tables', function () {
+    
+        return view('admin.tables.index');
+    })->name('tables');
 
+    Route::get('/Chart', function () {
+    
+        return view('admin.charts.index');
+    })->name('charts');
+
+    Route::get('/Other', function () {
+        
+        return view('admin.other.index');
+    })->name('other');
+    
+    Route::get('/Colors', function () {
+    
+        return view('admin.colors.index');
+    })->name('colors'); 
+    
+    Route::get('/buttons', function () {
+        return view('admin.buttons.index');
+    })->name('buttons');
+
+    Route::get('/Animations', function () {
+        
+        return view('admin.animations.index');
+    })->name('animations');
+
+    Route::get('/Borders', function () {
+        
+        return view('admin.borders.index');
+    })->name('borders');
+
+    Route::get('/Cards', function () {
+            return view('admin.cards.index');
+        })->name('cards');
+        
+    Route::get('/forgotPassword', function () {
+    
+        return view('admin.forgotPassword.index');
+    })->name('forgotPassword');
+// cũ 
     Route::get('/404', function () {
     
         return view('admin.layouts.404Page');
     })->name('404Page');
-    Route::get('/Animations', function () {
     
-        return view('admin.layouts.animations');
-    })->name('animations');
     Route::get('/BankPage', function () {
     
         return view('admin.layouts.blankPage');
     })->name('blankPage');
-    Route::get('/Border', function () {
     
-        return view('admin.layouts.borders');
-    })->name('borders');
-    Route::get('/button', function () {
-        return view('admin.layouts.Button');
-    })->name('button');
-    Route::get('/Cards', function () {
-        return view('admin.layouts.cards');
-    })->name('cards');
-    Route::get('/Chart', function () {
+   
     
-        return view('admin.layouts.charts');
-    })->name('charts');
-    Route::get('/Color', function () {
     
-        return view('admin.layouts.colors');
-    })->name('colors');
-    Route::get('/forgotPassword', function () {
     
-        return view('admin.layouts.forgotPassword');
-    })->name('forgotPassword');
-    Route::get('/Login', function () {
     
-        return view('admin.layouts.login');
-    })->name('login');
-    Route::get('/Other', function () {
     
-        return view('admin.layouts.other');
-    })->name('other');
-    Route::get('/Register', function () {
     
-        return view('admin.layouts.register');
-    })->name('register');
-    Route::get('/Tables', function () {
+
     
-        return view('admin.layouts.tables');
-    })->name('tables');
     
 
     });
