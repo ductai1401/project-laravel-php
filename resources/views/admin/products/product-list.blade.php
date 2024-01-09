@@ -1,5 +1,5 @@
-@extends('layouts.app')
-@section("title","dashboard")
+@extends('admin.layouts.app')
+@section("title","Product")
 @section("content")
 <!-- Begin Page Content -->
 <h1>Product</h1>

@@ -67,22 +67,22 @@ Route::get('/', function () use ($tasks) {
 //admin page
 Route::group(['prefix'=>'admin', 'as'=>'admin.','namespace'=>'admin'], function(){
     Route::get('/', function(){
-        return view('admin.dashboard.index');
+        return view('admin.dashboard.index',['users'=>\App\Models\User::latest()->get()]);
     })->name('index');
 
     Route::get('/users', function () {
 
-        return view('admin.users.user-list');
+        return view('admin.users.user-list',['users'=>\App\Models\User::latest()->get()]);
     })->name('user.list');
     
     Route::get('/Categories', function(){
-        return view('admin.Categories.Categorie-list');
-    });
+        return view('admin.categories.catergorie-list');
+    })->name('categories');
 
     Route::get('/Product', function () {
 
-        return view('admin.product.product-list');
-    });
+        return view('admin.products.product-list');
+    })->name('products');
 
     Route::get('/Login', function () {
     

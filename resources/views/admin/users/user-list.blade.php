@@ -4,6 +4,8 @@
 <div class="col-x2-13 col-md-12 mb-12">
     <div class="card border-left-primary shadow h-100 py-2">
         <div class="card-body">
+           
+
             <table class="table">
                 <thead>
                     <tr>
@@ -17,29 +19,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                    <?php $i =0; ?>
+                    @foreach($users as $user)
+                    <?php $i++; ?>
+                    <tr>   
+                    <th scope="row"><?php echo $i ?></th>
+                    <td>{{$user->name}}</td>
+                    <td>{{$user->email}}</td>
+                    <td>{{$user->password}}</td>
                     <td><i class="fa-solid fa-pen-to-square text-success"></i></td>
                     <td><i class="fa-solid fa-trash text-danger"></i></td>
                     </tr>
-                    <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td><i class="fa-solid fa-pen-to-square text-success"></i></td>
-                    <td><i class="fa-solid fa-trash text-danger"></i></td>
-                    </tr>
-                    <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                    <td><i class="fa-solid fa-pen-to-square text-success"></i></td>
-                    <td><i class="fa-solid fa-trash text-danger"></i></td>
-                    </tr>
+                    @endforeach
+                    
                 </tbody>
             </table>
         </div>
